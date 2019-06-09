@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "mock:api": "json-server --watch api/db1.json  --port 4000",
-    "mock:api2": "json-server --watch api/db.js  --delay 2000 --port 4000",
+    "mock:api-2": "json-server --watch api/db.js --port 4000",
+    "mock:api-delay": "json-server --watch api/db.js  --delay 2000 --port 4000",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
