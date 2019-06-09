@@ -1,9 +1,10 @@
 import { ProductModelService } from 'src/app/shared/product-model-service';
 import { ProductModel } from './../../shared/product-model';
 import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort  } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog  } from '@angular/material';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs';
+import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 
 @Component({
@@ -19,11 +20,12 @@ export class ProductModelList2Component implements AfterViewInit, OnInit {
 
   public dataSource = new MatTableDataSource<ProductModel>();
 
+
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
 
-  constructor(private pmService: ProductModelService) {
+  constructor(private pmService: ProductModelService, private dialog: MatDialog ) {
 
  //   this.pmService.getAll().subscribe( (data) => {
  //   this.productModelList = data;
@@ -57,7 +59,7 @@ export class ProductModelList2Component implements AfterViewInit, OnInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
-  delete(index: number, e) {
+  delete_via_window_confirmd(index: number, e: ProductModel) {
     if (window.confirm('Are you sure?')) {
       const data = this.dataSource.data;
       data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
@@ -67,6 +69,21 @@ export class ProductModelList2Component implements AfterViewInit, OnInit {
   }
 
 
+  delete(index: number, e: ProductModel) {
+
+    const dialogData = new ConfirmDialogModel('Please confirm deletion', 'Are you sure to delete ' + e.modelName );
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { maxWidth: '400px', data: dialogData });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult === true) {
+        const data = this.dataSource.data;
+        data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
+        this.dataSource.data = data;
+        this.pmService.delete(e.id).subscribe();
+      }
+    });
+
+  }
 }
 
 export class ProductModelDataSource extends DataSource<any> {

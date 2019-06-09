@@ -75,7 +75,7 @@ export class ProductModelService {
       );
   }
 
-  delete(id: string): Observable<any> {
+  delete(id: number): Observable<any> {
     return this.http
       .delete(`${this.api}/${this.apiApp}/${id}`, { responseType: 'text' })
       .pipe(

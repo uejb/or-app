@@ -14,6 +14,7 @@ import { ProductModelService } from './shared/product-model-service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductModelList2Component } from './components/product-model-list2/product-model-list2.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppComponent,
     ProductModelEditComponent,
     ProductModelListComponent,
-    ProductModelList2Component
+    ProductModelList2Component,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +35,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AngularFontAwesomeModule,
     FlexLayoutModule
   ],
-  providers: [
-    ProductModelService
-
-  ],
+  providers: [ ProductModelService ],
+  entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
