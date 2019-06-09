@@ -23,7 +23,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/material-design-icons/iconfont/material-icons.css",
+              "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "src/styles.css",
+              "./node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": []
           },
@@ -51,6 +55,9 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "es5": {
+              "tsConfig": "./tsconfig.es5.json"
             }
           }
         },
@@ -62,6 +69,9 @@
           "configurations": {
             "production": {
               "browserTarget": "or-app:build:production"
+            },
+            "es5": {
+              "browserTarget": "or-app:build:es5"
             }
           }
         },
@@ -83,7 +93,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/material-design-icons/iconfont/material-icons.css",
+              "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "src/styles.css",
+           "./node_modules/font-awesome/css/font-awesome.css"
+
             ],
             "scripts": []
           }
@@ -114,6 +129,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "or-app"
 }

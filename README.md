@@ -1,6 +1,27 @@
-# OrApp
+# OR App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+
+
+# Additional Steps
+
+`npm install roboto-fontface`
+
+`npm install --save font-awesome angular-font-awesome`
+
+`npm install material-design-icons-iconfont --save` 
+
+ `npm i -s @angular/flex-layout @angular/cdk`
+
+add the following to angular.json:
+
+          `"styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/styles.css",
+              "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "./node_modules/font-awesome/css/font-awesome.css" ,
+              "./node_modules/material-design-icons-iconfont/dist/material-design-icons.css`
+
 
 ## Development server
 
