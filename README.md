@@ -23,6 +23,44 @@ add the following to angular.json:
               "./node_modules/material-design-icons-iconfont/dist/material-design-icons.css`
 
 
+# IE 11 Support
+
+Add a file  tsconfig.es5.json beside tsconfig.app.json:
+`
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+      "target": "es5"
+   }
+ }
+ `
+
+in angular.json add
+
+`        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "or-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "or-app:build:production"
+            },
+            "es5": {
+              "browserTarget": "or-app:build:es5"
+            }`
+
+and `,
+            "es5": {
+              "tsConfig": "./tsconfig.es5.json"
+            }` in the configuration section
+
+For IE11 use  `ng serve --configuration es5` 
+
+
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
