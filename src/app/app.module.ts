@@ -36,7 +36,8 @@ import { APP_BASE_HREF } from '@angular/common';
     AngularFontAwesomeModule,
     FlexLayoutModule
   ],
-  providers: [ ProductModelService, {provide: APP_BASE_HREF, useValue: '/' + (window.location.pathname.split('/')[1] || '')} ],
+  // providers: [ ProductModelService, {provide: APP_BASE_HREF, useValue: '/' + (window.location.pathname.split('/')[1] || '')} ],
+  providers: [ ProductModelService ],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
