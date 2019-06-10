@@ -8,11 +8,12 @@ import { ProductModel } from './product-model';
 import { ProductModelRaw } from './product-model-raw';
 import { ProductModelFactory } from './product-model-factory';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ProductModelService {
-  private api = 'https://35.194.50.191/api';
-//  private api = 'http://localhost:3000';
+
+  private api = environment.apiUrl;
 
   private apiApp = 'models';
 
