@@ -71,7 +71,7 @@ export class ProductModelList2Component implements AfterViewInit, OnInit {
 
   delete(index: number, e: ProductModel) {
 
-    const dialogData = new ConfirmDialogModel('Please confirm deletion', 'Are you sure to delete ' + e.modelName );
+    const dialogData = new ConfirmDialogModel('Please confirm deletion', 'Are you sure to delete ' + e.modelName , false);
     const dialogRef = this.dialog.open(ConfirmDialogComponent, { maxWidth: '400px', data: dialogData });
 
     dialogRef.afterClosed().subscribe(dialogResult => {

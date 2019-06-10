@@ -9,12 +9,20 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class ConfirmDialogComponent {
   title: string;
   message: string;
+  okButton: boolean;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel) {
     // Update view with given values
     this.title = data.title;
     this.message = data.message;
+    this.okButton = data.okButton;
+  }
+
+
+  onOkButton(): void {
+    // Close the dialog, return true
+    this.dialogRef.close(true);
   }
 
   onConfirm(): void {
@@ -35,5 +43,4 @@ export class ConfirmDialogComponent {
  */
 export class ConfirmDialogModel {
 
-  constructor(public title: string, public message: string) {
-  }}
+  constructor(public title: string, public message: string, public okButton: boolean) {  }}

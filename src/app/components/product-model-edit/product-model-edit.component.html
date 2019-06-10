@@ -30,7 +30,7 @@
 
           <!-- Name -->
           <mat-form-field>
-            <input matInput #modelName placeholder="Model name" formControlName="modelName">
+            <input maxlength="10" matInput #modelName placeholder="Model name" formControlName="modelName">
             <mat-hint align="end">{{modelName.value?.length || 0}}/10</mat-hint>
             <mat-error *ngIf="handleError('modelName', 'required')">
               You must provide a <strong>model name</strong>
@@ -39,6 +39,24 @@
 
 
 
+          <!-- Type -->
+          <mat-form-field>
+            <input maxlength="10" matInput #modelType placeholder="Type" formControlName="modelType">
+            <mat-hint align="end">{{modelType.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="handleError('modelType', 'required')">
+              You must provide a <strong> type</strong>
+            </mat-error>
+          </mat-form-field>
+
+
+          <!-- Engine -->
+          <mat-form-field>
+            <input maxlength="10" matInput #modelEngineType placeholder="Engine" formControlName="modelEngineType">
+            <mat-hint align="end">{{modelEngineType.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="handleError('modelEngineType', 'required')">
+              You must provide a <strong> Engine</strong>
+            </mat-error>
+          </mat-form-field>
 
 
 
@@ -52,7 +70,7 @@
 
 
 
-          <!-- Name -->
+          <!-- Description -->
           <mat-form-field>
             <textarea matInput #description placeholder="Description" formControlName="description"></textarea>
             <mat-hint align="end">{{description.value?.length || 0}}/100</mat-hint>

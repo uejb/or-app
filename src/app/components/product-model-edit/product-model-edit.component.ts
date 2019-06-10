@@ -6,6 +6,8 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@ang
 import { AngularMaterialModule } from './../../material.module';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductModelService } from 'src/app/shared/product-model-service';
+import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-product-model-edit',
@@ -20,7 +22,8 @@ export class ProductModelEditComponent {
     private router: Router,
     private ngZone: NgZone,
     private route: ActivatedRoute,
-    private pmService: ProductModelService
+    private pmService: ProductModelService,
+    private dialog: MatDialog
   ) {
     const id: number = +this.route.snapshot.paramMap.get('id');
 
@@ -65,7 +68,12 @@ export class ProductModelEditComponent {
     // this.productModelForm.value.thumbnails = this.productModelForm.value.thumbnails.filter(thumbnail => thumbnail.url);
 
     if (!this.productModelForm.valid) {
-      alert('nicht gültig');
+
+      const dialogData = new ConfirmDialogModel('Invalid data', 'Please check your input. Something is wrong' , true);
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, { maxWidth: '400px', data: dialogData });
+
+      dialogRef.afterClosed().subscribe(dialogResult => {
+        if (dialogResult === true) {}   });
       return;
     }
 
@@ -104,7 +112,7 @@ export class ProductModelEditComponent {
   */
 
   onFormCanceled() {
-    this.ngZone.run(() => this.router.navigateByUrl('/product-model-list'));
+    this.ngZone.run(() => this.router.navigateByUrl('/product-model-list2'));
   }
 
   public handleError = (controlName: string, errorName: string) => {
