@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductModelList2Component } from './components/product-model-list2/product-model-list2.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     AngularFontAwesomeModule,
     FlexLayoutModule
   ],
-  providers: [ ProductModelService ],
+  providers: [ ProductModelService, {provide: APP_BASE_HREF, useValue: '/' + (window.location.pathname.split('/')[1] || '')} ],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

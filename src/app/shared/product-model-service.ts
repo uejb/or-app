@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProductModelService {
-  private api = 'http://localhost:4000';
+  private api = 'http://35.194.50.191/api';
   private apiApp = 'models';
 
   constructor(private http: HttpClient) {}

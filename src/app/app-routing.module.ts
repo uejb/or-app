@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 
-{ path: '', pathMatch: 'full', redirectTo: 'product-model' },
+{ path: '', pathMatch: 'full', redirectTo: 'product-model-list2' },
 { path: 'product-model-add', component: ProductModelEditComponent},
 { path: 'product-model-edit/:id', component: ProductModelEditComponent },
 { path: 'product-model-list', component: ProductModelListComponent },
