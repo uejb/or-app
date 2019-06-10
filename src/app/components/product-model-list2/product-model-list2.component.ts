@@ -59,8 +59,8 @@ export class ProductModelList2Component implements AfterViewInit, OnInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
-  delete_via_window_confirmd(index: number, e: ProductModel) {
-    if (window.confirm('Are you sure?')) {
+  delete(index: number, e: ProductModel) {
+    if (window.confirm('Are you sure to delete ' + e.modelName + '?')) {
       const data = this.dataSource.data;
       data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
       this.dataSource.data = data;
@@ -69,8 +69,9 @@ export class ProductModelList2Component implements AfterViewInit, OnInit {
   }
 
 
-  delete(index: number, e: ProductModel) {
+  delete_futsch(index: number, e: ProductModel) {
 
+    /*
     const dialogData = new ConfirmDialogModel('Please confirm deletion', 'Are you sure to delete ' + e.modelName , false);
     const dialogRef = this.dialog.open(ConfirmDialogComponent, { maxWidth: '400px', data: dialogData });
 
@@ -82,6 +83,7 @@ export class ProductModelList2Component implements AfterViewInit, OnInit {
         this.pmService.delete(e.id).subscribe();
       }
     });
+    */
 
   }
 }

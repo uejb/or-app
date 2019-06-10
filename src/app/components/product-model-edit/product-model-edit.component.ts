@@ -68,13 +68,14 @@ export class ProductModelEditComponent {
     // this.productModelForm.value.thumbnails = this.productModelForm.value.thumbnails.filter(thumbnail => thumbnail.url);
 
     if (!this.productModelForm.valid) {
-
+/*
       const dialogData = new ConfirmDialogModel('Invalid data', 'Please check your input. Something is wrong' , true);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, { maxWidth: '400px', data: dialogData });
 
       dialogRef.afterClosed().subscribe(dialogResult => {
         if (dialogResult === true) {}   });
-      return;
+  */
+        return;
     }
 
 
